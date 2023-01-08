@@ -8,7 +8,7 @@ const Done = () => {
   const [todo, setTodo] = useState([]);
 
   const getDoneTodo = async () => {
-    const response = await axios.get("http://localhost:5000/todo");
+    const response = await axios.get("http://localhost:5000/todo/done");
     setTodo(response.data);
     console.log(response.data);
   };
@@ -88,32 +88,48 @@ const Done = () => {
           </table> */}
           <div className=" bg-slate-900 flex flex-col fixed w-[25%] h-screen left-0">
             <div className="flex flex-col gap-5 h-[50%] pt-10">
-              <div className="text-slate-300 font-mono text-4xl font-bold mx-auto cursor-default h-20 w-[90%] flex items-center justify-center px-5 py-2 rounded-md ">
+              <div className="text-slate-300 font-mono text-4xl font-bold mx-auto cursor-default h-12 w-[90%] flex items-center justify-center px-5 py-2 rounded-md ">
                 Tododo
               </div>
-              <div className="text-slate-50 text-xl bg-slate-700 cursor-pointer mx-auto h-20 w-[90%] flex items-center justify-center px-5 py-2 rounded-md hover:bg-slate-500">
+              <Link
+                href={"/"}
+                className="text-slate-50 text-xl bg-slate-700 cursor-pointer mx-auto h-16 w-[90%] flex items-center justify-center px-5 py-2 rounded-md hover:bg-slate-500"
+              >
+                <Icon icon="ic:baseline-home" className="mr-1 text-2xl" />
+                <span>Home</span>
+              </Link>
+              <Link
+                href={"/done"}
+                className="text-slate-50 text-xl bg-slate-500 cursor-pointer mx-auto h-16 w-[90%] flex items-center justify-center px-5 py-2 rounded-md hover:bg-slate-400"
+              >
                 <Icon
                   icon="ic:baseline-library-add-check"
-                  className="mr-2 text-2xl"
+                  className="mr-1 text-2xl"
                 />
                 Done
-              </div>
-              <div className="text-slate-50 text-xl bg-slate-700 cursor-pointer mx-auto h-20 w-[90%] flex items-center justify-center px-5 py-2 rounded-md hover:bg-slate-500">
+              </Link>
+              <Link
+                href={"/add"}
+                className="text-slate-50 text-xl bg-slate-700 cursor-pointer mx-auto h-16 w-[90%] flex items-center justify-center px-5 py-2 rounded-md hover:bg-slate-500"
+              >
                 <Icon
                   icon="ic:baseline-add-to-photos"
-                  className="mr-2 text-2xl"
+                  className="mr-1 text-2xl"
                 />
-                <span>Add New</span>
-              </div>
+                <span>Add new</span>
+              </Link>
             </div>
             <div className="flex flex-col gap-5 h-[50%] justify-end pb-10">
-              <div className="text-slate-50 text-xl bg-slate-700 mx-auto cursor-pointer h-20 w-[90%] flex items-center justify-center px-5 py-2 rounded-md hover:bg-slate-500">
+              <Link
+                href={""}
+                className="text-slate-50 text-xl bg-slate-700 mx-auto cursor-pointer h-20 w-[90%] flex items-center justify-center px-5 py-2 rounded-md hover:bg-slate-500"
+              >
                 <Icon
                   icon="material-symbols:logout"
-                  className="mr-2 text-2xl"
+                  className="mr-1 text-2xl"
                 />
                 <span>Logout</span>
-              </div>
+              </Link>
             </div>
           </div>
           <div className="flex flex-wrap gap-5 p-10 w-[75%] absolute right-0 bg-slate-800">
@@ -129,14 +145,14 @@ const Done = () => {
                   <button className="bg-slate-900 py-2 px-3 rounded-xl hover:bg-emerald-600 duration-200 flex items-center justify-center">
                     <Icon
                       icon="material-symbols:undo"
-                      className="mr-2 text-2xl"
+                      className="mr-1 text-2xl"
                     />
                     Undone
                   </button>
                   <button className="bg-slate-900 py-2 px-3 rounded-xl hover:bg-rose-600 duration-200 flex items-center justify-center ">
                     <Icon
                       icon="material-symbols:delete-sharp"
-                      className="mr-2 text-2xl"
+                      className="mr-1 text-2xl"
                     />
                     Delete
                   </button>
