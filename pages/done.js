@@ -18,14 +18,14 @@ const Done = () => {
     // console.log("welcome");
   }, []);
 
-  //   const deleteUser = async (id) => {
-  //     try {
-  //       await axios.delete(`http://localhost:5000/users/${id}`);
-  //       getUsers();
-  //     } catch (error) {
-  //       console.log({ deleteUserError: error });
-  //     }
-  //   };
+  const deleteTodo = async (id) => {
+    try {
+      await axios.delete(`http://localhost:5000/todo/${id}`);
+      getDoneTodo();
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <>
@@ -36,56 +36,6 @@ const Done = () => {
       </Head>
       <main className="">
         <div className="flex min-h-screen">
-          {/* <Link
-            href={"/add"}
-            className="px-4 py-4 bg-emerald-300 text-slate-700 font-bold rounded-lg "
-          >
-            ➕ Add new User
-          </Link>
-          <Link
-            href={"/add"}
-            className="px-4 py-4 bg-emerald-300 text-slate-700 font-bold rounded-lg "
-          >
-            ➕ Add new User
-          </Link> */}
-          {/* <table className="table-auto border-2 border-amber-500 mt-5 ">
-            <thead className="border-b-2 border-b-amber-500 bg-slate-800 text-white">
-              <tr className="">
-                <th className="py-3 px-1 text-center">No</th>
-                <th className="py-3 px-6">Title</th>
-                <th className="py-3 px-6">Description</th>
-                <th className="py-3 px-6">status</th>
-                <th className="py-3 px-1 text-center">Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              {todo.map((item, index) => (
-                <tr
-                  className=" odd:bg-emerald-100 even:bg-pink-100"
-                  key={item.id}
-                >
-                  <td className="py-3 px-1 text-center">{index + 1}</td>
-                  <td className="py-3 px-6 ">{item.title}</td>
-                  <td className="py-3 px-6">{item.description}</td>
-                  <td className="py-3 px-6">{item.isDone}</td>
-                  <td className="py-3 px-1 text-center">
-                    <Link
-                      href={`/edit/${item.id}`}
-                      className="bg-sky-600 hover:opacity-70 text-white px-3 py-2 rounded-md mx-2"
-                    >
-                      Edit ⚙️
-                    </Link>
-                    <button
-                      className="bg-slate-300 hover:opacity-70  px-3 py-2 rounded-md"
-                      //   onClick={() => deleteUser(item.id)}
-                    >
-                      Delete ❌
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table> */}
           <div className=" bg-slate-900 flex flex-col fixed w-[25%] h-screen left-0">
             <div className="flex flex-col gap-5 h-[50%] pt-10">
               <div className="text-slate-300 font-mono text-4xl font-bold mx-auto cursor-default h-12 w-[90%] flex items-center justify-center px-5 py-2 rounded-md ">
@@ -149,7 +99,10 @@ const Done = () => {
                     />
                     Undone
                   </button>
-                  <button className="bg-slate-900 py-2 px-3 rounded-xl hover:bg-rose-600 duration-200 flex items-center justify-center ">
+                  <button
+                    className="bg-slate-900 py-2 px-3 rounded-xl hover:bg-rose-600 duration-200 flex items-center justify-center"
+                    onClick={() => deleteTodo(item.id)}
+                  >
                     <Icon
                       icon="material-symbols:delete-sharp"
                       className="mr-1 text-2xl"

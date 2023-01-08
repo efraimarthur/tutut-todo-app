@@ -58,17 +58,7 @@ const index = () => {
             placeholder="description"
           />
         </div>
-        {/* <div className="flex flex-col mt-5">
-          <label className="label text-white">Gender</label>
-          <select
-            className="outline-none py-3 text-center active:shadow-lg"
-            value={gender}
-            onChange={(e) => setGender(e.target.value)}
-          >
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-          </select>
-        </div> */}
+
         <div className="mt-5 flex justify-end gap-2">
           <Link
             href="/"
@@ -79,7 +69,7 @@ const index = () => {
           </Link>
           <button
             type="submit"
-            // onClick={addUser}
+            // onClick={addTodo}
             className="bg-emerald-400 px-4 py-3 rounded-lg hover:opacity-75 hover:shadow text-xl flex items-center justify-center"
           >
             <Icon icon="ic:baseline-add-to-photos" className="mr-1 text-2xl" />
