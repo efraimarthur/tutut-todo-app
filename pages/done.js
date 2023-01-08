@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import axios from "axios";
 import Link from "next/link";
+import { Icon } from "@iconify/react";
 
 const Done = () => {
   const [todo, setTodo] = useState([]);
@@ -85,31 +86,58 @@ const Done = () => {
               ))}
             </tbody>
           </table> */}
-          <div className=" bg-slate-900 flex flex-col fixed w-[25%] h-screen left-0 pt-20">
-            <div className="text-slate-50 text-xl bg-slate-700 mx-auto cursor-pointer h-20 w-[90%] flex items-center justify-center px-5 py-2 rounded-md">
-              Add new Todo
+          <div className=" bg-slate-900 flex flex-col fixed w-[25%] h-screen left-0">
+            <div className="flex flex-col gap-5 h-[50%] pt-10">
+              <div className="text-slate-300 font-mono text-4xl font-bold mx-auto cursor-default h-20 w-[90%] flex items-center justify-center px-5 py-2 rounded-md ">
+                Tododo
+              </div>
+              <div className="text-slate-50 text-xl bg-slate-700 cursor-pointer mx-auto h-20 w-[90%] flex items-center justify-center px-5 py-2 rounded-md hover:bg-slate-500">
+                <Icon
+                  icon="ic:baseline-library-add-check"
+                  className="mr-2 text-2xl"
+                />
+                Done
+              </div>
+              <div className="text-slate-50 text-xl bg-slate-700 cursor-pointer mx-auto h-20 w-[90%] flex items-center justify-center px-5 py-2 rounded-md hover:bg-slate-500">
+                <Icon
+                  icon="ic:baseline-add-to-photos"
+                  className="mr-2 text-2xl"
+                />
+                <span>Add New</span>
+              </div>
             </div>
-            <div className="text-slate-50 text-xl bg-slate-700 cursor-pointer mx-auto h-20 w-[90%] flex items-center justify-center px-5 py-2 rounded-md">
-              BETUL BETUL BETUL
-            </div>
-            <div className="text-slate-50 text-xl bg-slate-700 cursor-pointer mx-auto h-20 w-[90%] flex items-center justify-center px-5 py-2 rounded-md">
-              BETUL BETUL BETUL
+            <div className="flex flex-col gap-5 h-[50%] justify-end pb-10">
+              <div className="text-slate-50 text-xl bg-slate-700 mx-auto cursor-pointer h-20 w-[90%] flex items-center justify-center px-5 py-2 rounded-md hover:bg-slate-500">
+                <Icon
+                  icon="material-symbols:logout"
+                  className="mr-2 text-2xl"
+                />
+                <span>Logout</span>
+              </div>
             </div>
           </div>
           <div className="flex flex-wrap gap-5 p-10 w-[75%] absolute right-0 bg-slate-800">
             {todo.map((item, index) => (
               <div
-                className="bg-slate-700 text-slate-50 p-3 shadow-lg flex flex-col rounded-md aspect-square hover:scale-110 duration-300 my-5 relative w-[30%] mx-auto"
+                className="bg-slate-700 text-slate-50 p-3 shadow-lg flex flex-col rounded-md aspect-square hover:scale-105 duration-300 my-5 relative w-[30%] mx-auto"
                 key={item.id}
               >
                 <div className="text-xl font-bold">{item.title}</div>
                 <div className="text-lg">{item.description}</div>
                 <div className="text-rose-500">{`${item.isDone}`}</div>
-                <div className="flex absolute gap-10 bottom-3 left-1/2 -translate-x-1/2">
-                  <button className="bg-slate-900 py-3 px-6 rounded-xl hover:bg-emerald-600 duration-200">
-                    Done
+                <div className="flex absolute gap-1 bottom-3 left-1/2 -translate-x-1/2">
+                  <button className="bg-slate-900 py-2 px-3 rounded-xl hover:bg-emerald-600 duration-200 flex items-center justify-center">
+                    <Icon
+                      icon="material-symbols:undo"
+                      className="mr-2 text-2xl"
+                    />
+                    Undone
                   </button>
-                  <button className="bg-slate-900 py-3 px-6 rounded-xl hover:bg-rose-600 duration-200">
+                  <button className="bg-slate-900 py-2 px-3 rounded-xl hover:bg-rose-600 duration-200 flex items-center justify-center ">
+                    <Icon
+                      icon="material-symbols:delete-sharp"
+                      className="mr-2 text-2xl"
+                    />
                     Delete
                   </button>
                 </div>
