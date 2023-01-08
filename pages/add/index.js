@@ -7,7 +7,6 @@ import { Icon } from "@iconify/react";
 const index = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [isDone, setIsDone] = useState(false);
 
   const router = useRouter();
 
@@ -17,7 +16,7 @@ const index = () => {
       await axios.post("http://localhost:5000/todo", {
         title: title,
         description: description,
-        isDone: isDone,
+        isDone: false,
       });
       router.push("/");
     } catch (error) {
@@ -72,7 +71,7 @@ const index = () => {
             // onClick={addTodo}
             className="bg-emerald-400 px-4 py-3 rounded-lg hover:opacity-75 hover:shadow text-xl flex items-center justify-center"
           >
-            <Icon icon="ic:baseline-add-to-photos" className="mr-1 text-2xl" />
+            <Icon icon="ic:outline-add-circle" className="mr-1 text-2xl" />
             <span>Add Todo</span>
           </button>
         </div>
