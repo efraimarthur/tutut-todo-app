@@ -22,7 +22,6 @@ const index = () => {
     } catch (error) {
       console.log(error);
     }
-    // console.log("Submit");
   };
 
   return (
@@ -68,7 +67,6 @@ const index = () => {
           </Link>
           <button
             type="submit"
-            // onClick={addTodo}
             className="bg-emerald-400 px-4 py-3 rounded-lg hover:opacity-75 hover:shadow text-xl flex items-center justify-center"
           >
             <Icon icon="ic:outline-add-circle" className="mr-1 text-2xl" />

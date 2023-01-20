@@ -15,13 +15,12 @@ const Done = () => {
 
   useEffect(() => {
     getDoneTodo();
-    // console.log("welcome");
   }, []);
 
   const deleteTodo = async (id) => {
     try {
       await axios.delete(`http://localhost:5000/todo/${id}`);
-      getDoneTodo(); //refetecher to display new data
+      getDoneTodo();
     } catch (error) {
       console.log(error);
     }
@@ -34,8 +33,7 @@ const Done = () => {
         description: item.description,
         isDone: false,
       });
-      getDoneTodo(); //refetecher to display new data
-      //   console.log(item.title);
+      getDoneTodo();
     } catch (error) {
       console.log(error);
     }
